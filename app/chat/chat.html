@@ -12,9 +12,13 @@
     <div class="user-list">
       <span>Active users:</span>
       <ul>
-        <li ng-repeat="user in $ctrl.users">{{user}}</li>
+        <li ng-repeat="user in $ctrl.users track by $index">{{user}}</li>
       </ul>
+      <p>{{$ctrl.users.length}} users online</p>
     </div>
-    <p>{{$ctrl.users.length}} users online</p>
+    <div class="message-list">
+      <textarea disabled ng-model="$ctrl.messages"></textarea>
+      <input ng-attr-placeholder="Type your message" type="text" ng-model="$ctrl.message" ng-keydown="$ctrl.onMessageKeydown($event)">
+    </div>
   </div>
 </div>

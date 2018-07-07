@@ -6,6 +6,7 @@
 
 .user-list {
   width: 40%;
+  float: left;
 }
 
 .user-list ul {
@@ -16,4 +17,19 @@
 
 .user-list ul li {
   list-style: none;
+}
+
+.message-list {
+  width: 60%;
+  float: left;
+}
+
+.message-list textarea,
+.message-list input {
+  width: 100%;
+}
+
+.message-list textarea {
+  overflow: scroll;
+  height: 400px;
 }
