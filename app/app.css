@@ -1,25 +1,35 @@
 /* app css stylesheet */
 
-.menu {
+.chat {
+  padding: 30px;
+}
+
+.user-list {
+  width: 40%;
+  float: left;
+}
+
+.user-list ul {
+  margin: 0;
+  padding: 0;
+  margin-left: 10px;
+}
+
+.user-list ul li {
   list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
 }
 
-.menu:before {
-  content: "[";
+.message-list {
+  width: 60%;
+  float: left;
 }
 
-.menu:after {
-  content: "]";
+.message-list textarea,
+.message-list input {
+  width: 100%;
 }
 
-.menu > li {
-  display: inline;
-}
-
-.menu > li + li:before {
-  content: "|";
-  padding-right: 0.3em;
+.message-list textarea {
+  overflow: scroll;
+  height: 400px;
 }
