@@ -5,13 +5,15 @@ module.exports = function(config) {
     basePath: './app',
 
     files: [
+      'http://localhost:3000/socket.io/socket.io.js',
       'bower_components/angular/angular.js',
       'bower_components/angular-route/angular-route.js',
       'bower_components/angular-mocks/angular-mocks.js',
+      'bower_components/angular-socket-io/socket.js',
       '**/*.module.js',
       '*!(.module|.spec).js',
       '!(bower_components)/**/*!(.module|.spec).js',
-      '**/*.spec.js'
+      '!(bower_components)/**/*.spec.js'
     ],
 
     autoWatch: true,
