@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, 'app')));
 
 // Chatroom
 
-var numUsers = 0;
+var users = [];
 
 io.on('connection', (socket) => {
   var addedUser = false;
@@ -35,15 +35,15 @@ io.on('connection', (socket) => {
 
     // we store the username in the socket session for this client
     socket.username = username;
-    ++numUsers;
+    users.push(username);
     addedUser = true;
     socket.emit('login', {
-      numUsers: numUsers
+      users: users,
     });
     // echo globally (all clients) that a person has connected
     socket.broadcast.emit('user joined', {
       username: socket.username,
-      numUsers: numUsers
+      users: users,
     });
   });
 
@@ -64,12 +64,13 @@ io.on('connection', (socket) => {
   // when the user disconnects.. perform this
   socket.on('disconnect', () => {
     if (addedUser) {
-      --numUsers;
+      var index = users.indexOf(socket.username);
+      users.splice(index, 1);
 
       // echo globally that this client has left
       socket.broadcast.emit('user left', {
         username: socket.username,
-        numUsers: numUsers
+        users: users,
       });
     }
   });

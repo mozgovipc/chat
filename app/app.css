@@ -1,1 +1,19 @@
 /* app css stylesheet */
+
+.chat {
+  padding: 30px;
+}
+
+.user-list {
+  width: 40%;
+}
+
+.user-list ul {
+  margin: 0;
+  padding: 0;
+  margin-left: 10px;
+}
+
+.user-list ul li {
+  list-style: none;
+}

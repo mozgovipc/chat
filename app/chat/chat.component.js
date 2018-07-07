@@ -7,7 +7,7 @@ angular
     controller: ['chatService', function(chatService) {
       var ctrl = this;
 
-      ctrl.numUsers = 0;
+      ctrl.users = [];
       ctrl.connected = false;
       
       ctrl.onJoin = function() {
@@ -17,13 +17,14 @@ angular
       }
 
       chatService.on('login', function(data) {
-        ctrl.numUsers = data.numUsers;
+        console.log('login:', data);
+        ctrl.users = data.users;
         ctrl.connected = true;
       });
 
       chatService.on('user joined', function(data) {
-        ctrl.numUsers = data.numUsers;
         console.log('user joined:', data);
+        ctrl.users = data.users;
       });
     }],
   });
