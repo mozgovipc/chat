@@ -3,7 +3,7 @@
 
   <div ng-if="!$ctrl.connected">
     <label for="nickname">Nick:</label>
-    <input id="nickname" type="text" ng-model="$ctrl.nickname">
+    <input id="nickname" type="text" ng-model="$ctrl.nickname" ng-keydown=$ctrl.onJoin($event)>
     <button ng-click="$ctrl.onJoin()">Join</button>
   </div>
   

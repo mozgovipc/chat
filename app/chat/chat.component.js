@@ -16,9 +16,11 @@ angular
         ctrl.messages += '\n' + message;
       };
       
-      ctrl.onJoin = function() {
-        if (ctrl.nickname) {
-          chatService.emit('add user', ctrl.nickname);
+      ctrl.onJoin = function($event) {
+        if (!$event || ($event && $event.keyCode == 13)) {
+          if (ctrl.nickname) {
+            chatService.emit('add user', ctrl.nickname);
+          }
         }
       };
 
