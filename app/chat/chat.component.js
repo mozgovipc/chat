@@ -8,11 +8,17 @@ angular
       var ctrl = this;
 
       ctrl.numUsers = 0;
+      ctrl.connected = false;
       
-      chatService.emit('add user', 'hello');
+      ctrl.onJoin = function() {
+        if (ctrl.nickname) {
+          chatService.emit('add user', ctrl.nickname);
+        }
+      }
 
       chatService.on('login', function(data) {
         ctrl.numUsers = data.numUsers;
+        ctrl.connected = true;
       });
 
       chatService.on('user joined', function(data) {

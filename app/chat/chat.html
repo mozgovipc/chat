@@ -1,3 +1,12 @@
 <p>The main chat room</p>
 
-<p>{{$ctrl.numUsers}} users online</p>
+<div ng-if="!$ctrl.connected">
+  <label for="nickname">Nick:</label>
+  <input id="nickname" type="text" ng-model="$ctrl.nickname">
+  <button ng-click="$ctrl.onJoin()">Join</button>
+</div>
+
+<div ng-if="$ctrl.connected">
+  <p>You are connected under nickname `{{$ctrl.nickname}}`</p>
+  <p>{{$ctrl.numUsers}} users online</p>
+</div>
